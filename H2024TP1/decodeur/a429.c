@@ -5,10 +5,17 @@
 
 void afficher_entete_decodeur()
 {
-//    char* authors = AUTHOR_NAME_1 and " et ";
+    char* authors = AUTHOR_NAMES;
 
-    printf("***************************************************\n");
+    printf("/*****************************************************************************\n");
     printf("* DECODEUR ARING-429\n");
     printf("*\n");
-//    printf("Auteur  : %");
+    printf("Auteurs  : %s\n",authors);
+    printf("*\n");
+    printf("/*****************************************************************************\n");
+    printf("\n");
+    printf("\n");
+    printf("\n");
+    printf("Mot ARINC-429   |   Est corrompu    |   Donnee\n");
+    printf("----------------|-------------------|-----------------------------------------\n");
 }
