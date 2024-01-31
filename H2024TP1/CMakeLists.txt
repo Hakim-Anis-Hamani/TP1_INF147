@@ -4,16 +4,16 @@ project(H2024TP1 C)
 set(CMAKE_C_STANDARD 11)
 
 set(PROJECT_HEADERS
-        configuration.h
-        decodeur/icd.h
-        decodeur/a429.h
-        decodeur/utilitaire.h)
+        ../configuration.h
+        ../decodeur/icd.h
+        ../decodeur/a429.h
+        ../decodeur/utilitaire.h)
 
 set(PROJECT_SOURCES
-        main.c
-        test.c
-        decodeur/a429.c
-        decodeur/utilitaire.c
+        ../main.c
+        ../test.c
+        ../decodeur/a429.c
+        ../decodeur/utilitaire.c
         )
 
 if (WIN32)

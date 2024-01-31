@@ -2,12 +2,14 @@
 #include <stdio.h>
 
 #include "configuration.h"
+#include "decodeur/a429.h"
 
 #if APPLICATION
 
 int main(void)
 {
-    printf("TODO ...\n");
+    int secondes;
+    afficher_entete_decodeur();
     return EXIT_SUCCESS;
 }
 
