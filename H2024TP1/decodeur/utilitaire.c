@@ -47,3 +47,23 @@ int decimal_a_octale(int nbrBase10) {
     }
     return atoi(returnNumber);
 }
+
+unsigned int calculer_nb_bits_actifs(unsigned int nbrAnalyse)
+{
+    int index;
+    unsigned int masque = 1;
+    unsigned int nbBits = 0;
+
+    for(index = 0; index <= 32; index++)
+    {
+        unsigned int nbrAnalyseTemp = nbrAnalyse >> index;
+        unsigned int verificationBit = nbrAnalyseTemp & masque;
+
+        if(verificationBit == 1)
+        {
+            nbBits++;
+        }
+    }
+
+    return nbBits;
+}

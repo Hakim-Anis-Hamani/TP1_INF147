@@ -5,13 +5,13 @@
 
 void afficher_entete_decodeur()
 {
-    char* authors = AUTHOR_NAMES;
+    char* auteurs = NOM_AUTEURS;
     char* session = SESSION;
     int secondes;
     printf("/*****************************************************************************\n");
     printf("* DECODEUR ARING-429\n");
     printf("*\n");
-    printf("Auteurs     :   %s\n",authors);
+    printf("Auteurs     :   %s\n",auteurs);
     printf("Session     :   %s\n",session);
     printf("*\n");
     printf("/*****************************************************************************\n");
@@ -28,13 +28,13 @@ void afficher_entete_decodeur()
 
 void afficher_entete_test(void)
 {
-    char* authors = AUTHOR_NAMES;
+    char* auteurs = NOM_AUTEURS;
     char* session = SESSION;
 
     printf("/*****************************************************************************\n");
     printf("* DECODEUR ARING-429    ::  Mode Test\n");
     printf("*\n");
-    printf("Auteurs     :   %s\n",authors);
+    printf("Auteurs     :   %s\n",auteurs);
     printf("Session     :   %s\n",session);
     printf("*\n");
     printf("/*****************************************************************************\n");
