@@ -46,6 +46,15 @@ void decimal_a_octale_test() {
 
 }
 
+void calculer_nb_bits_actifs_test()
+{
+    /*assert(calculer_nb_bits_actifs(0x00000000) == 0);
+    assert(calculer_nb_bits_actifs(0x00000001) == 1);
+    assert(calculer_nb_bits_actifs(0x80000000) == 1);
+    assert(calculer_nb_bits_actifs(0x12345678) == 13);
+    assert(calculer_nb_bits_actifs(0xFFFFFFFF) == 32);*/
+}
+
 int main(void)
 {
     afficher_entete_test();
