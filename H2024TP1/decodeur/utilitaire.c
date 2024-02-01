@@ -1,7 +1,7 @@
 #include "utilitaire.h"
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
+
 
 void tostring(char str[], int num)
 {
@@ -34,16 +34,17 @@ void* afficher_heure(int secondesEntre) {
 
 }
 
-int decimal_a_octale(int nbrBase10) {
+void decimal_a_octale(int nbrBase10) {
     int nbr = nbrBase10;
-    double keepNumber;
-    char* returnNumber;
+    char nbrBase8[255];
+    int i =0;
     while (nbr >= 1) {
-        char nbrchar[1];
-        char nbrBase8[255];
-        tostring(nbrchar,nbr % 8);
-        strcat(nbrBase8, nbrchar);
+        nbrBase8[i] = nbr % 8;
         nbr = nbr / 8;
+        i++;
     }
-    return atoi(returnNumber);
+
+    for (int index = 1; index < i+1; index++) {
+            printf("%d", nbrBase8[i-index]);
+    }
 }

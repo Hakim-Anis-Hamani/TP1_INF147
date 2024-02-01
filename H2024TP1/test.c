@@ -29,12 +29,20 @@ void afficher_heure_test() {
 }
 
 void decimal_a_octale_test() {
-    //printf("%i", decimal_a_octale(8));
-    /*assert(decimal_a_octale(8) == 10);
-    assert(decimal_a_octale(15) == 17);
-    assert(decimal_a_octale(64) == 100);
-    assert(decimal_a_octale(104) == 150);
-    assert(decimal_a_octale(209) == 321);*/
+    printf("\nRecu      | Prevu\n"
+               "------------------------\n");
+    decimal_a_octale(1);
+    printf("         | %s \n", "1");
+    decimal_a_octale(8);
+    printf("        | %s \n", "10");
+    decimal_a_octale(15);
+    printf("        | %s \n", "17");
+    decimal_a_octale(64);
+    printf("       | %s \n", "100");
+    decimal_a_octale(104);
+    printf("       | %s \n", "150");
+    decimal_a_octale(209);
+    printf("       | %s \n", "321");
 
 }
 
