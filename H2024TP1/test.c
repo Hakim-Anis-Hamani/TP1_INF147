@@ -43,16 +43,20 @@ void decimal_a_octale_test() {
     printf("       | %s \n", "150");
     decimal_a_octale(209);
     printf("       | %s \n", "321");
+    decimal_a_octale(96);
+    printf("       | %s \n", "140");
+    decimal_a_octale(2147483647); // limite du int par securité un big int serait optimal
+    printf("       | %s \n", "17777777777");
 
 }
 
 void calculer_nb_bits_actifs_test()
 {
-    /*assert(calculer_nb_bits_actifs(0x00000000) == 0);
+    assert(calculer_nb_bits_actifs(0x00000000) == 0);
     assert(calculer_nb_bits_actifs(0x00000001) == 1);
     assert(calculer_nb_bits_actifs(0x80000000) == 1);
     assert(calculer_nb_bits_actifs(0x12345678) == 13);
-    assert(calculer_nb_bits_actifs(0xFFFFFFFF) == 32);*/
+    assert(calculer_nb_bits_actifs(0xFFFFFFFF) == 32);
 }
 
 int main(void)
