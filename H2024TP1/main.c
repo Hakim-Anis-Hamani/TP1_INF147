@@ -9,13 +9,15 @@
 
 int main(void)
 {
+    int port_udp = UDP_PORT;
+
     afficher_entete_decodeur();
-    initialiser_port_udp(UDP_PORT);
+    initialiser_port_udp(port_udp);
 
     for(int i = 1; i > 0; i++)
     {
         unsigned int mot_a429 = 0;
-        recevoir_port_udp(UDP_PORT,&mot_a429,32);
+        recevoir_port_udp(port_udp,&mot_a429,sizeof(unsigned int));
         if(mot_a429 != 0)
         {
             afficher_mot_a429(mot_a429);

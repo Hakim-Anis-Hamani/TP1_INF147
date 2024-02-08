@@ -6,7 +6,8 @@
 
 #define UDP_PORT        50001
 #define PAIR_PARITY     0
-#define ODD_PARITY      1
+#define ODD_PARITY      0
 #define RECEPTOR_PARITY ODD_PARITY
+#define TAILLEDONNEES   31
 
 #endif

@@ -21,9 +21,9 @@ void afficher_entete_decodeur()
     printf("Mot ARINC-429   |   Est corrompu    |   Donnee\n");
     printf("----------------|-------------------|-----------------------------------------\n");
 
-    printf("Veuiller indiquer le nombre de secodnes pour calculer le temps : ");
-    scanf("%i", &secondes);
-    afficher_heure(secondes);
+//    printf("Veuiller indiquer le nombre de secondes pour calculer le temps : ");
+//    scanf("%i", &secondes);
+//    afficher_heure(secondes);
 }
 
 void afficher_entete_test(void)
