@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/H2024TP1.dir/main.c.obj.d"
   "CMakeFiles/H2024TP1.dir/test.c.obj"
   "CMakeFiles/H2024TP1.dir/test.c.obj.d"
+  "CMakeFiles/H2024TP1.dir/udp/port_udp.c.obj"
+  "CMakeFiles/H2024TP1.dir/udp/port_udp.c.obj.d"
   "H2024TP1.exe"
   "H2024TP1.exe.manifest"
   "H2024TP1.pdb"

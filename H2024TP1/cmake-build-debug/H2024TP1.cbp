@@ -100,6 +100,12 @@
 		<Unit filename="C:/Users/jayce/Documents/INF147/TP1_INF147/H2024TP1/test.c">
 			<Option target="H2024TP1"/>
 		</Unit>
+		<Unit filename="C:/Users/jayce/Documents/INF147/TP1_INF147/H2024TP1/udp/port_udp.c">
+			<Option target="H2024TP1"/>
+		</Unit>
+		<Unit filename="C:/Users/jayce/Documents/INF147/TP1_INF147/H2024TP1/udp/port_udp.h">
+			<Option target="H2024TP1"/>
+		</Unit>
 		<Unit filename="C:/Users/jayce/Documents/INF147/TP1_INF147/H2024TP1/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

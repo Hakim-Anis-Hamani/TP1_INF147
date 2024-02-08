@@ -224,6 +224,30 @@ test.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\H2024TP1.dir\build.make CMakeFiles/H2024TP1.dir/test.c.s
 .PHONY : test.c.s
 
+udp/port_udp.obj: udp/port_udp.c.obj
+.PHONY : udp/port_udp.obj
+
+# target to build an object file
+udp/port_udp.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\H2024TP1.dir\build.make CMakeFiles/H2024TP1.dir/udp/port_udp.c.obj
+.PHONY : udp/port_udp.c.obj
+
+udp/port_udp.i: udp/port_udp.c.i
+.PHONY : udp/port_udp.i
+
+# target to preprocess a source file
+udp/port_udp.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\H2024TP1.dir\build.make CMakeFiles/H2024TP1.dir/udp/port_udp.c.i
+.PHONY : udp/port_udp.c.i
+
+udp/port_udp.s: udp/port_udp.c.s
+.PHONY : udp/port_udp.s
+
+# target to generate assembly for a file
+udp/port_udp.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\H2024TP1.dir\build.make CMakeFiles/H2024TP1.dir/udp/port_udp.c.s
+.PHONY : udp/port_udp.c.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -245,6 +269,9 @@ help:
 	@echo ... test.obj
 	@echo ... test.i
 	@echo ... test.s
+	@echo ... udp/port_udp.obj
+	@echo ... udp/port_udp.i
+	@echo ... udp/port_udp.s
 .PHONY : help
 
 
