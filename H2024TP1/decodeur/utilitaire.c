@@ -49,3 +49,22 @@ unsigned int calculer_nb_bits_actifs(unsigned int nbrAnalyse)
 
     return nbBits;
 }
+
+void afficher_bits(unsigned int valeur, int bit_depart, int bit_fin)
+{
+    int masque = 1; // Permet de garder la valeur du bit selectionné.
+
+    // Boucle for qui va passer à travers les bits demandes.
+    for(int i = bit_fin; i >= bit_depart; i--)
+    {
+        unsigned int valeur_decale = valeur >> i; // Décalage de la valeur.
+        unsigned int valeur_bit = valeur_decale & masque; // On extrait la valeur du bit.
+        int verification = i % 4; // On vérifie si on a bien un groupe de 4 bits.
+        printf("%i",valeur_bit); // On affiche la valeur du bit sélectionné.
+        if(verification == 0) // Si on a un groupe de 4 bits, on sépare le prochain groupe avec un espace.
+        {
+            printf(" ");
+        }
+    }
+
+}
