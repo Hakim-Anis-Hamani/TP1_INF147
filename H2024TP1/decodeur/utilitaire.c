@@ -1,5 +1,8 @@
 #include "utilitaire.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
 
 
 void* afficher_heure(int secondesEntre) {
@@ -15,7 +18,7 @@ void* afficher_heure(int secondesEntre) {
 
 }
 
-void decimal_a_octale(int nbrBase10) {
+int decimal_a_octale(int nbrBase10) {
     int nbr = nbrBase10;
     char nbrBase8[255];
     int i =0;
@@ -24,10 +27,12 @@ void decimal_a_octale(int nbrBase10) {
         nbr = nbr / 8;
         i++;
     }
-
-    for (int index = 1; index < i+1; index++) {
-            printf("%d", nbrBase8[i-index]);
+    int nbrFinal = 0;
+    for (int index = 0; index < i; index++) {
+            nbrFinal += pow(10,index)*nbrBase8[index];
     }
+
+    return nbrFinal;
 }
 
 unsigned int calculer_nb_bits_actifs(unsigned int nbrAnalyse)

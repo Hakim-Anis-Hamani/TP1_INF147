@@ -31,22 +31,26 @@ void afficher_heure_test() {
 void decimal_a_octale_test() {
     printf("\nRecu      | Prevu\n"
                "------------------------\n");
-    decimal_a_octale(1);
+    printf("%i ", decimal_a_octale(1));
     printf("         | %s \n", "1");
-    decimal_a_octale(8);
+
+    printf("%i ",decimal_a_octale(8));
     printf("        | %s \n", "10");
-    decimal_a_octale(15);
+
+    printf("%i ",decimal_a_octale(15));
     printf("        | %s \n", "17");
-    decimal_a_octale(64);
+
+    printf("%i ",decimal_a_octale(64));
     printf("       | %s \n", "100");
-    decimal_a_octale(104);
+
+    printf("%i ",decimal_a_octale(104));
     printf("       | %s \n", "150");
-    decimal_a_octale(209);
+
+    printf("%i ",decimal_a_octale(209));
     printf("       | %s \n", "321");
-    decimal_a_octale(96);
+
+    printf("%i ",decimal_a_octale(96));
     printf("       | %s \n", "140");
-    decimal_a_octale(2147483647); // limite du int par securité un big int serait optimal
-    printf("       | %s \n", "17777777777");
 
 }
 

@@ -6,7 +6,7 @@
 
 void* afficher_heure(int secondesEntre);
 
-void decimal_a_octale(int nbrBase10);
+int decimal_a_octale(int nbrBase10);
 
 unsigned int calculer_nb_bits_actifs(unsigned int nbrAnalyse);
 
