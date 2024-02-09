@@ -1,7 +1,6 @@
 #include "utilitaire.h"
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+
 
 void* afficher_heure(int secondesEntre) {
 
@@ -11,6 +10,7 @@ void* afficher_heure(int secondesEntre) {
 
      int secondes = (secondesEntre % HEURE_SECONDE) % MINUTE_SECONDE;
 
+    //int liste[3] = {heures, minutes, secondes};
       printf("%02ih%02im%02is", heures, minutes, secondes);
 
 }

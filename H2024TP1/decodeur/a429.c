@@ -42,6 +42,6 @@ void afficher_entete_test(void)
 
 void afficher_mot_a429(unsigned int mot_a429)
 {
-    printf("\n(%i) :",mot_a429); // Créé une nouvelle ligne avec la valeur en hexadécimale.
+    printf("\n (0x% 8x) : ",mot_a429); // Créé une nouvelle ligne avec la valeur en hexadécimale.
     afficher_bits(mot_a429,BITDEPART,BITFIN); // Affiche le mot en format binaire, sur 32 bits.
 }
