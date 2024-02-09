@@ -13,4 +13,5 @@ void afficher_entete_test(void);
 
 void afficher_mot_a429(unsigned int mot_a429);
 
+void decoder_mot_a429(unsigned int mot_a429,int *est_corrompu,int *numero_mot,double *donnee_bnr,int *donnee_bcd1,int *donnee_bcd2,int *donnee_bcd3,int *donnee_bcd4);
 #endif

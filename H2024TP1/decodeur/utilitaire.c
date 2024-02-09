@@ -41,7 +41,7 @@ unsigned int calculer_nb_bits_actifs(unsigned int nbrAnalyse)
     unsigned int masque = 1;
     unsigned int nbBits = 0;
 
-    for(index = 0; index <= 32; index++)
+    for(index = 0; index <= 31; index++)
     {
         unsigned int nbrAnalyseTemp = nbrAnalyse >> index;
         unsigned int verificationBit = nbrAnalyseTemp & masque;

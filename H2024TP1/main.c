@@ -18,7 +18,6 @@ int main(void)
         recevoir_port_udp(port,&mot_a429,sizeof(unsigned int));
         if(mot_a429 != 0)
         {
-
             afficher_mot_a429(mot_a429);
         }
     }
