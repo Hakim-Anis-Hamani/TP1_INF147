@@ -1,7 +1,7 @@
 #ifndef H2024TP1_CONFIGURATION
 #define H2024TP1_CONFIGURATION
 
-#define TEST            0
+#define TEST            1
 #define APPLICATION     0
 
 #define UDP_PORT        55001

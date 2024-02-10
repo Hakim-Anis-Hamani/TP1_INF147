@@ -100,7 +100,6 @@ int recevoir_port_udp(int id_port_udp, void* donnees, int taille_donnees)
     int sender_size = sizeof(sender_address);
 
     nb_octets_recus = recvfrom(id_port_udp, donnees, taille_donnees, 0, (struct sockaddr*) &sender_address, &sender_size);
-
     return nb_octets_recus;
 }
 
