@@ -23,9 +23,9 @@ void afficher_entete_test(void)
 
 void afficher_heure_test()
 {
-    printf("/*****************************************************************************\n");
-    printf("*              TEST AFFICHER HEURE\n");
-    printf("/*****************************************************************************\n");
+    printf("*****************************************************************************\n");
+    printf("*                           TEST AFFICHER HEURE                             *\n");
+    printf("*****************************************************************************\n");
     printf("\nRecu         | Prevu\n"
            "------------------------\n");
     afficher_heure(1);
@@ -52,7 +52,7 @@ void afficher_heure_test()
 void decimal_a_octale_test()
 {
     printf("/*****************************************************************************\n");
-    printf("*              TEST DECIMALE OCTALE A429\n");
+    printf("*                       TEST DECIMALE OCTALE A429                            *\n");
     printf("/*****************************************************************************\n");
     printf("\nRecu      | Prevu\n"
                "------------------------\n");
@@ -84,7 +84,7 @@ void decimal_a_octale_test()
 void afficher_bits_test()
 {
     printf("/*****************************************************************************\n");
-    printf("*              TEST AFFICHER BITS\n");
+    printf("*                        TEST AFFICHER BITS                                  *\n");
     printf("/*****************************************************************************\n");
     printf("\nRecu                                            | Prevu\n"
            "------------------------------------------------------------------------\n");
@@ -106,9 +106,9 @@ void afficher_bits_test()
 
 void calculer_nb_bits_actifs_test()
 {
-    printf("/*****************************************************************************\n");
-    printf("*              TEST CALCULER NB BITS ACTIFS\n");
-    printf("/*****************************************************************************\n");
+    printf("*****************************************************************************\n");
+    printf("*                       TEST CALCULER NB BITS ACTIFS                        *\n");
+    printf("*****************************************************************************\n");
     printf("\nRecu      | Prevu\n"
            "------------------------\n");
     printf("%i ", calculer_nb_bits_actifs(0x00000000));
@@ -128,9 +128,9 @@ void calculer_nb_bits_actifs_test()
 }
 
 void decoder_mot_a429_test() {
-    printf("/*****************************************************************************\n");
-    printf("*              TEST DECODER MOT A429\n");
-    printf("/*****************************************************************************\n");
+    printf("******************************************************************************\n");
+    printf("*                       TEST DECODER MOT A429                                *\n");
+    printf("******************************************************************************\n");
     int est_corrompu;
     int numero_mot;
     double donnee_bnr;
@@ -139,9 +139,9 @@ void decoder_mot_a429_test() {
     int donnee_bcd3;
     int donnee_bcd4;
     printf("\nRecu                | Prevu\n"
-              "-----------------------------------------------------------------------------");
+              "-----------------------------------------------------------------------------\n");
     decoder_mot_a429(0x85D3029A,&est_corrompu,&numero_mot, &donnee_bnr,&donnee_bcd1,&donnee_bcd2,&donnee_bcd3,&donnee_bcd4);
-    printf("        valeur = 0x85D3029A\n"
+    printf("\n        valeur = 0x85D3029A\n"
            "est_corrompu = %i    | est_corrompue = 0 \n"
            "numero_mot =  %i   | numero_mot = 232 \n"
            "donnee_bnr = %f      | donnee_bnr = ?/0 \n"
@@ -149,14 +149,14 @@ void decoder_mot_a429_test() {
            "donnee_bcd2 = %i    | donnee_bcd2 = 24 \n"
            "donnee_bcd3 = %i    | donnee_bcd3 = 20 \n"
            "donnee_bcd4 = %i    | donnee_bcd4 = 11 \n"
-            "-----------------------------------------------------------------------------"
+            "-----------------------------------------------------------------------------\n"
             ,est_corrompu, numero_mot,donnee_bnr,donnee_bcd1,donnee_bcd2,donnee_bcd3,donnee_bcd4);
 
 
     printf("\nRecu                | Prevu\n"
               "-----------------------------------------------------------------------------");
     decoder_mot_a429(0x003C90B0,&est_corrompu,&numero_mot, &donnee_bnr,&donnee_bcd1,&donnee_bcd2,&donnee_bcd3,&donnee_bcd4);
-    printf("        valeur = 0x003C90B0\n"
+    printf("\n        valeur = 0x003C90B0\n"
            "est_corrompu = %i    | est_corrompue = 0 \n"
            "numero_mot =  %i   | numero_mot = 260 \n"
            "donnee_bnr = %f      | donnee_bnr = ?/0 \n"
@@ -164,13 +164,13 @@ void decoder_mot_a429_test() {
            "donnee_bcd2 = %i    | donnee_bcd2 = 4 \n"
            "donnee_bcd3 = %i    | donnee_bcd3 = 15 \n"
            "donnee_bcd4 = %i    | donnee_bcd4 = 0 \n"
-            "-----------------------------------------------------------------------------"
+            "-----------------------------------------------------------------------------\n"
             ,est_corrompu, numero_mot,donnee_bnr,donnee_bcd1,donnee_bcd2,donnee_bcd3,donnee_bcd4);
 
     printf("\nRecu                | Prevu\n"
               "-----------------------------------------------------------------------------");
     decoder_mot_a429(0x812EAF68,&est_corrompu,&numero_mot, &donnee_bnr,&donnee_bcd1,&donnee_bcd2,&donnee_bcd3,&donnee_bcd4);
-    printf("        valeur = 0x812EAF68\n"
+    printf("\n        valeur = 0x812EAF68\n"
            "est_corrompu = %i    | est_corrompue = 0 \n"
            "numero_mot =  %i   | numero_mot = 150 \n"
            "donnee_bnr = %f      | donnee_bnr = 77487.000000 \n"
@@ -178,13 +178,13 @@ void decoder_mot_a429_test() {
            "donnee_bcd2 = %i    | donnee_bcd2 = ?/0 \n"
            "donnee_bcd3 = %i    | donnee_bcd3 = ?/0 \n"
            "donnee_bcd4 = %i    | donnee_bcd4 = ?/0 \n"
-            "-----------------------------------------------------------------------------"
+            "-----------------------------------------------------------------------------\n"
             ,est_corrompu, numero_mot,donnee_bnr,donnee_bcd1,donnee_bcd2,donnee_bcd3,donnee_bcd4);
 
     printf("\nRecu                | Prevu\n"
               "-----------------------------------------------------------------------------");
     decoder_mot_a429(0x83D2E3C8,&est_corrompu,&numero_mot, &donnee_bnr,&donnee_bcd1,&donnee_bcd2,&donnee_bcd3,&donnee_bcd4);
-    printf("        valeur = 0x83D2E3C8\n"
+    printf("\n        valeur = 0x83D2E3C8\n"
            "est_corrompu = %i    | est_corrompue = 0 \n"
            "numero_mot =  %i   | numero_mot = 310 \n"
            "donnee_bnr = %f      | donnee_bnr = 43.102340 \n"
@@ -192,13 +192,13 @@ void decoder_mot_a429_test() {
            "donnee_bcd2 = %i    | donnee_bcd2 = ?/0 \n"
            "donnee_bcd3 = %i    | donnee_bcd3 = ?/0 \n"
            "donnee_bcd4 = %i    | donnee_bcd4 = ?/0 \n"
-            "-----------------------------------------------------------------------------"
+            "-----------------------------------------------------------------------------\n"
             ,est_corrompu, numero_mot,donnee_bnr,donnee_bcd1,donnee_bcd2,donnee_bcd3,donnee_bcd4);
 
     printf("\nRecu                | Prevu\n"
               "-----------------------------------------------------------------------------");
     decoder_mot_a429(0x00261AAA,&est_corrompu,&numero_mot, &donnee_bnr,&donnee_bcd1,&donnee_bcd2,&donnee_bcd3,&donnee_bcd4);
-    printf("        valeur = 0x00261AAA\n"
+    printf("\n        valeur = 0x00261AAA\n"
            "est_corrompu = %i    | est_corrompue = 1 \n"
            "numero_mot   =  %i   | numero_mot   = 252 \n"
            "donnee_bnr   = %f    | donnee_bnr   = 9754.000000 \n"
@@ -206,16 +206,16 @@ void decoder_mot_a429_test() {
            "donnee_bcd2  = %i    | donnee_bcd2  = ?/0 \n"
            "donnee_bcd3  = %i    | donnee_bcd3  = ?/0 \n"
            "donnee_bcd4  = %i    | donnee_bcd4  = ?/0 \n"
-            "-----------------------------------------------------------------------------"
+            "-----------------------------------------------------------------------------\n"
             ,est_corrompu, numero_mot,donnee_bnr,donnee_bcd1,donnee_bcd2,donnee_bcd3,donnee_bcd4);
     printf("\n");
 }
 
 void afficher_mot_a429_test()
 {
-    printf("/*****************************************************************************\n");
-    printf("*              TEST AFFICHER MOT A429\n");
-    printf("/*****************************************************************************\n");
+    printf("******************************************************************************\n");
+    printf("*                           TEST AFFICHER MOT A429                           *\n");
+    printf("******************************************************************************\n");
     printf("Recu :");
     afficher_mot_a429(0x85D3029A);
     printf("\nPrevu :\n");
