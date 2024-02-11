@@ -1,18 +1,28 @@
+/****************************************************************************************
+/*                                          A429.C                                      *
+/****************************************************************************************
+    Auteur : Jasmin Papierz-Lambert et Hakim-Anis Hamani
+    Date   : 10 février 2024
+
+    Ce module contient les méthodes utilisé pour manipuler les données de vols recu par
+    le protocole ARINC-429.
+
+*****************************************************************************************/
 #include "a429.h"
 #include "utilitaire.h"
 #include <stdio.h>
 
+/****************************************************************************************
+*                           DÉFINTION DES FONCTIONS PUBLIQUES                           *
+*****************************************************************************************/
 
 void afficher_entete_decodeur()
 {
-    char* auteurs = NOM_AUTEURS;
-    char* session = SESSION;
-    int secondes;
     printf("/*****************************************************************************\n");
     printf("* DECODEUR ARING-429\n");
     printf("*\n");
-    printf("* Auteurs     :   %s\n",auteurs);
-    printf("* Session     :   %s\n",session);
+    printf("* Auteurs     :   %s\n",NOM_AUTEURS);
+    printf("* Session     :   %s\n",SESSION);
     printf("*\n");
     printf("/*****************************************************************************\n");
     printf("\n");
@@ -34,7 +44,7 @@ void afficher_mot_a429(unsigned int mot_a429)
     int donnee_bcd4;
 
     decoder_mot_a429(mot_a429,&est_corrompu,&numero_mot, &donnee_bnr,&donnee_bcd1,&donnee_bcd2,&donnee_bcd3,&donnee_bcd4);// Affiche le mot en format binaire, sur 32 bits.
-
+    printf("\n");
     char lettre_donnee_1 = 'A' + donnee_bcd1;
     char lettre_donnee_2 = 'A' + donnee_bcd2;
     char lettre_donnee_3 = 'A' + donnee_bcd3;
@@ -75,33 +85,54 @@ void afficher_mot_a429(unsigned int mot_a429)
             printf(" |  Longitude               : %0.6lf",donnee_bnr);
             break;
     }
-    //afficher_bits(mot_a429,BITDEPART,BITFIN);
+
 }
 
 void decoder_mot_a429(unsigned int mot_a429,int* est_corrompu,int* numero_mot,double* donnee_bnr,int* donnee_bcd1,int* donnee_bcd2,int* donnee_bcd3,int* donnee_bcd4)
 {
-    printf("\n");
-    *numero_mot = decimal_a_octale(mot_a429 & 255 );
-   *est_corrompu = calculer_nb_bits_actifs(mot_a429) % 2 == 0;
 
+    // Permet la conversion et le stockage en référence de mot du messages ;
+    *numero_mot = decimal_a_octale(mot_a429 & 255 );
+
+    // Permet d'obtenir et le stockage de l'état de corrumption 1 = Nombres de bit 1, si pair corrumption = 1 et si impair = 0
+    *est_corrompu = calculer_nb_bits_actifs(mot_a429) % 2 == 0;
+
+    // Si numéro équivaut au valeur de mots 232,255 ou 260 le decodage se fait en BCD
    if(*numero_mot == 232 || *numero_mot == 255 || *numero_mot == 260)
    {
+       // Bit 8 à 12 du mot recue et ensuite convertie en decimale et ainsi stocker en référence
        *donnee_bcd1    = (int) (mot_a429 >> 8) & 31;
+
+       // Bit 13 à 17 du mot recue et ensuite convertie en decimale et ainsi stocker en référence
        *donnee_bcd2    = (int) (mot_a429 >> 13) & 31;
+
+       // Bit 18 à 22 du mot recue et ensuite convertie en decimale et ainsi stocker en référence
        *donnee_bcd3    = (int) (mot_a429 >> 18) & 31;
+       // Bit 23 à 28 du mot recue et ensuite convertie en decimale et ainsi stocker en référence
        *donnee_bcd4    = (int) (mot_a429 >> 23) & 63;
+
+       // Donnée bnr mis à zéra car non utiliser
        *donnee_bnr     = 0;
    }
+    // Si numéro équivaut au valeur de mots 150,252,310 ou 311 le decodage se fait en BNR
     else if(*numero_mot == 150 || *numero_mot == 252 || *numero_mot == 310 || *numero_mot == 311)
    {
-        int estnegatif = (int)(mot_a429 >> 29 & 3)==3;
+        // Permet d'aller chercher le 29 et 30 bit si 11 est negatif = 1 sinon 0
+        int est_negatif = (int)(mot_a429 >> 29 & 3) == 3;
+
+        // Permet la conversion et le stockage en référence de mot du messages sous encodage BNR
         *donnee_bnr = ((int) (mot_a429 >> 8 & 2097151));
-        if (estnegatif) {
+
+        // Si négatif appliqué le symbole à la valeur
+        if (est_negatif) {
             *donnee_bnr = *donnee_bnr *-1;
         }
+        // Si numéro est 310 ou 311 multiplier par 0.00172
         if (*numero_mot == 310 || *numero_mot == 311 ) {
             *donnee_bnr = *donnee_bnr * 0.000172;
         }
+
+        // Mise à zéro des valeur non utilisées.
         *donnee_bcd1    = 0;
         *donnee_bcd2    = 0;
         *donnee_bcd3    = 0;
