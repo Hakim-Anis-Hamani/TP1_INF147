@@ -2,7 +2,7 @@
 /*                                          UTILITAIRE.H                                *
 /****************************************************************************************
     Auteur : Jasmin Papierz-Lambert et Hakim-Anis Hamani
-    Date   : 10 février 2024
+    Date   : 11 février 2024
 
     Ce module contient les méthodes utilisé pour manipuler les données de vols recu par
     le protocole ARINC-429.
@@ -11,7 +11,9 @@
       - afficher_heure : Afficher l'heure par un nombre de secondes.
       - decimal_a_octale: Convertir un nombre décimale à octale.
       - calculer_nb_bits_actifs : Retourner le nombre de 1 dans une valeure binaire
-      - afficher_bits :
+      - afficher_bits : Décode la valeur hexadécimale reçu et de l'afficher sous forme
+                        binaire séparé en groupes de 4, tout en restant dans les
+                        limites inclusives indiquées.
 
 *****************************************************************************************/
 #ifndef H2024TP1_UTILITAIRE
@@ -49,8 +51,34 @@ void afficher_heure(int secondes_entre);
 */
 int decimal_a_octale(int nombre_base_10);
 
-unsigned int calculer_nb_bits_actifs(unsigned int nbrAnalyse);
+/*
+    CALCULER_NB_BITS_ACTIFS
 
+    Cette fonction permet de compter le nombres de bits qui sont égaux à 1
+    dans la valeur binaire du int non signé reçu.
+
+    Paramètres:
+        - nbr_analyse: Nombre en base dix non signé à convertir.
+
+    Retour:
+        - Int qui indique le nombre de bits qui sont à 1.
+ */
+unsigned int calculer_nb_bits_actifs(unsigned int nbr_analyse);
+
+/*
+    AFFICHER_BITS
+
+    Cette fonction permet de décoder la valeur hexadécimale reçu et de l'afficher sous forme
+    binaire séparé en groupes de 4, tout en restant dans les limites inclusives indiquées.
+
+    Paramètres:
+        - valeur: valeur en base hexadécimale.
+        - bit_depart: valeur en base dix qui indique le bit de début.
+        - bit_fin: valeur en base dix qui indique le bit de fin.
+
+    Retour:
+        - Aucun.
+ */
 void afficher_bits(unsigned int valeur, int bit_depart, int bit_fin);
 
 #endif

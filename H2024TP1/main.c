@@ -1,3 +1,14 @@
+/*********************************************************************
+Par : Jasmin Papierz-Lambert et Hakim-Anis Hamani
+Date : 11 fevrier 2024
+
+ Ce programme a pour objectif de reçevoir, décoder et afficher des transmissions de mots
+ sous le protocole ARINC-429. Le programme initialise d'abord le port réseau UDP,
+ affiche l'entête du programme avec les colonnes et va mettre a jour en direct
+ la liste des mots reçu sous forme hexadécimale, si le mot est corrompu et la valeur
+ décodée de la transmission, selon les catégories standardisées.
+*********************************************************************/
+
 #include <stdio.h>
 #include <stdlib.h>
 

@@ -2,7 +2,7 @@
 /*                                          A429.H                                      *
 /****************************************************************************************
     Auteur : Jasmin Papierz-Lambert et Hakim-Anis Hamani
-    Date   : 10 février 2024
+    Date   : 11 février 2024
 
     Ce module contient les méthodes utilisé pour manipuler les données de vols recu par
     le protocole ARINC-429.

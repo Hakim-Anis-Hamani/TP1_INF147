@@ -2,7 +2,7 @@
 /*                                          A429.C                                      *
 /****************************************************************************************
     Auteur : Jasmin Papierz-Lambert et Hakim-Anis Hamani
-    Date   : 10 février 2024
+    Date   : 11 février 2024
 
     Ce module contient les fonctions utilitaires permettant la conversion et
     la récupération de certaines données dans le programme.
@@ -10,6 +10,7 @@
 *****************************************************************************************/
 
 #include "utilitaire.h"
+#include "..\configuration.h"
 #include <stdio.h>
 #include <math.h>
 
@@ -41,7 +42,7 @@ int decimal_a_octale(int nombre_base_10) {
     int nombre = nombre_base_10;
 
     //Liste de caractères permettant le stockage des chiffres sous base huit
-    char nbrBase8[255];
+    char nbr_base8[255];
 
     // Nombre de chiffre se trouvant dans la liste de chiffres de base huit sous forme LSD
     int nombre_chiffre_base_huit = 0;
@@ -49,7 +50,7 @@ int decimal_a_octale(int nombre_base_10) {
     // Boucle qui convertie jusqu'a que la somme du nombre decimal est zéro
     while (nombre >= 1) {
         // Nombre restant de la division par 8
-        nbrBase8[nombre_chiffre_base_huit] = nombre % 8;
+        nbr_base8[nombre_chiffre_base_huit] = nombre % 8;
 
         // Permet de definir la prochaine base de modulo pour la prochaine boucle
         nombre = nombre / 8;
@@ -64,38 +65,40 @@ int decimal_a_octale(int nombre_base_10) {
     for (int index = 0; index < nombre_chiffre_base_huit; index++) {
 
             // Permet de placer un chiffre à position en octal en multipliant par la puissance de sa position dans la liste
-            nombre_base_huit_converti += pow(10,index)*nbrBase8[index];
+            nombre_base_huit_converti += pow(10,index)*nbr_base8[index];
     }
 
     // Retourne la valeur final convertie
     return nombre_base_huit_converti;
 }
 
-unsigned int calculer_nb_bits_actifs(unsigned int nbrAnalyse)
+unsigned int calculer_nb_bits_actifs(unsigned int nbr_analyse)
 {
-    int index;
-    unsigned int masque = 1;
-    unsigned int nbBits = 0;
+    int index; // Index qui permet de contrôller la boucle for.
+    unsigned int masque = 1; // Masque binaire pour extraire les données voulu.
+    unsigned int nb_bits = 0; // Compteur qui nous permet de compter le nombre de bits a 1.
 
-    for(index = 0; index <= 31; index++)
+    // Boucle for qui passe a travers tous les bits de nbrAnalyse
+    for(index = 0; index <= TAILLEDONNEES; index++)
     {
-        unsigned int nbrAnalyseTemp = nbrAnalyse >> index;
-        unsigned int verificationBit = nbrAnalyseTemp & masque;
+        unsigned int nbr_analyse_temp = nbr_analyse >> index; // On décale vers la droite.
+        unsigned int verification_bit = nbr_analyse_temp & masque; // On extrait le bit voulu pour analyse.
 
-        if(verificationBit == 1)
+        if(verification_bit == 1)
         {
-            nbBits++;
+            nb_bits++; // Si le bit est actif (=1), on augmente le compteur de 1.
         }
     }
 
-    return nbBits;
+    return nb_bits;
 }
 
 void afficher_bits(unsigned int valeur, int bit_depart, int bit_fin)
 {
     int masque = 1; // Permet de garder la valeur du bit selectionné.
 
-    // Boucle for qui va passer à travers les bits demandes.
+    // Boucle for qui va passer à travers les bits inclusivement entre bit_depart et bit_fin.
+    // On passe a l'envers, c'est-a-dire de fin vers début pour bien afficher les bits en ordre.
     for(int i = bit_fin; i >= bit_depart; i--)
     {
         unsigned int valeur_decale = valeur >> i; // Décalage de la valeur.

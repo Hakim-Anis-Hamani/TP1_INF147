@@ -2,7 +2,7 @@
 /*                                          A429.C                                      *
 /****************************************************************************************
     Auteur : Jasmin Papierz-Lambert et Hakim-Anis Hamani
-    Date   : 10 février 2024
+    Date   : 11 février 2024
 
     Ce module contient les méthodes utilisé pour manipuler les données de vols recu par
     le protocole ARINC-429.
@@ -18,6 +18,7 @@
 
 void afficher_entete_decodeur()
 {
+    // Affichage et formatage de l'entête avec les colonnes.
     printf("/*****************************************************************************\n");
     printf("* DECODEUR ARING-429\n");
     printf("*\n");
@@ -35,22 +36,31 @@ void afficher_entete_decodeur()
 
 void afficher_mot_a429(unsigned int mot_a429)
 {
-    int est_corrompu;
-    int numero_mot;
-    double donnee_bnr;
-    int donnee_bcd1;
+    // Initialisation des paramètres qui seront envoyés a la fonction decoder_mot_a429().
+    int est_corrompu;   // Valeur de vérification de la corruption.
+    int numero_mot;     // Valeur du numéro de mot en format octal.
+    double donnee_bnr;  // Valeur BNR utilisé lors du mot en format BNR.
+    int donnee_bcd1;    // Valeurs BCD utilisées lors du mot en format BCD.
     int donnee_bcd2;
     int donnee_bcd3;
     int donnee_bcd4;
 
+    // On décode le mot reçu et les résultats sont envoyés a l'adresse relié aux paramètres initiés plus haut.
     decoder_mot_a429(mot_a429,&est_corrompu,&numero_mot, &donnee_bnr,&donnee_bcd1,&donnee_bcd2,&donnee_bcd3,&donnee_bcd4);// Affiche le mot en format binaire, sur 32 bits.
+
+    // Saut de ligne.
     printf("\n");
+
+    // Les valeurs décodées BCD seront additionné de la valeur int du charactère A puis convertie en forme CHAR pour affichage.
     char lettre_donnee_1 = 'A' + donnee_bcd1;
     char lettre_donnee_2 = 'A' + donnee_bcd2;
     char lettre_donnee_3 = 'A' + donnee_bcd3;
     char lettre_donnee_4 = 'A' + donnee_bcd4;
 
-    printf(" (0x% 8x) : ",mot_a429); // Créé une nouvelle ligne avec la valeur en hexadécimale.
+    // On affiche la valeur de la première colonne, format hexadécimal.
+    printf(" (0x% 8x) : ",mot_a429);
+
+    // Si le mot est corrompu, on affiche oui dans la deuxième colonne. Sinon on affiche non.
     if(est_corrompu == 0)
     {
         printf("|               Non");
@@ -60,6 +70,7 @@ void afficher_mot_a429(unsigned int mot_a429)
         printf("|               Oui");
     }
 
+    // Selon le numéro de mot reçu, on affiche le bon format des données dans la troisième colonne.
     switch(numero_mot)
     {
         case 150:

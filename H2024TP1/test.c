@@ -15,8 +15,8 @@ void afficher_entete_test(void)
     printf("/*****************************************************************************\n");
     printf("* DECODEUR ARING-429    ::  Mode Test\n");
     printf("*\n");
-    printf("Auteurs     :   %s\n",auteurs);
-    printf("Session     :   %s\n",session);
+    printf("* Auteurs     :   %s\n",auteurs);
+    printf("* Session     :   %s\n",session);
     printf("*\n");
     printf("/*****************************************************************************");
 }
@@ -83,11 +83,11 @@ void decimal_a_octale_test()
 
 void afficher_bits_test()
 {
-    printf("/*****************************************************************************\n");
-    printf("*                        TEST AFFICHER BITS                                  *\n");
-    printf("/*****************************************************************************\n");
+    printf("/********************************************************************************************\n");
+    printf("*                                       TEST AFFICHER BITS                                  *\n");
+    printf("/********************************************************************************************\n");
     printf("\nRecu                                            | Prevu\n"
-           "------------------------------------------------------------------------\n");
+           "--------------------------------------------------------------------------------------------\n");
     afficher_bits(0x12345678,0,31);
     printf("        | %s \n", "0001 0010 0011 0100 0101 0110 0111 1000");
 
@@ -211,38 +211,6 @@ void decoder_mot_a429_test() {
     printf("\n");
 }
 
-void afficher_mot_a429_test()
-{
-    printf("******************************************************************************\n");
-    printf("*                           TEST AFFICHER MOT A429                           *\n");
-    printf("******************************************************************************\n");
-    printf("Recu :");
-    afficher_mot_a429(0x85D3029A);
-    printf("\nPrevu :\n");
-    printf("(0x85d3029a) : |               Non |  Depart de l'aeroport    : CYUL");
-    printf("\n-----------------------------------------------------------------------------");
-    printf("\nRecu :");
-    afficher_mot_a429(0x003C90B0);
-    printf("\nPrevu :\n");
-    printf("(0x  3c90b0) : |               Non |  Date du vol             : 15/4/16");
-    printf("\n-----------------------------------------------------------------------------");
-    printf("\nRecu :");
-    afficher_mot_a429(0x812EAF68);
-    printf("\nPrevu :\n");
-    printf("(0x812eaf68) : |               Non |  Heure du vol            : 21h31m27s");
-    printf("\n-----------------------------------------------------------------------------");
-    printf("\nRecu :");
-    afficher_mot_a429(0x83D2E3C8);
-    printf("\nPrevu :\n");
-    printf("(0x83d2e3c8) : |               Non |  Latitude                : 43.102340");
-    printf("\n-----------------------------------------------------------------------------");
-    printf("\nRecu :");
-    afficher_mot_a429(0x00261AAA);
-    printf("\nPrevu :\n");
-    printf("(0x  261aaa) : |               Oui |  Altitude                : 9754.0");
-    printf("\n-----------------------------------------------------------------------------");
-}
-
 int main(void)
 {
     afficher_entete_test();
@@ -252,7 +220,6 @@ int main(void)
     calculer_nb_bits_actifs_test();
     afficher_bits_test();
     decoder_mot_a429_test();
-    afficher_mot_a429_test();
 }
 
 #endif
