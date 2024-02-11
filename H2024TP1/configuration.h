@@ -15,10 +15,10 @@
 #define H2024TP1_CONFIGURATION
 
 //  Constante booléenne permetant de lancer le progranne sous mode test
-#define TEST            1
+#define TEST            0
 
 //  Constante booléenne permetant de lancer le progranne sous mode Application
-#define APPLICATION     0
+#define APPLICATION     1
 
 //  Constante utilisé pour la communication entre decodeur et concentrateur
 #define UDP_PORT        55001

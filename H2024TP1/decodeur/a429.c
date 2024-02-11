@@ -58,12 +58,12 @@ void afficher_mot_a429(unsigned int mot_a429)
     char lettre_donnee_4 = 'A' + donnee_bcd4;
 
     // On affiche la valeur de la première colonne, format hexadécimal.
-    printf(" (0x% 8x) : ",mot_a429);
+    printf("  0x% 8x    ",mot_a429);
 
-    // Si le mot est corrompu, on affiche oui dans la deuxième colonne. Sinon on affiche non.
+    // Si le mot est corrompu, on affiche oui dans la deuxième colonne. Sinon on affiche rien.
     if(est_corrompu == 0)
     {
-        printf("|               Non");
+        printf("|                  ");
     }
     else if(est_corrompu == 1)
     {
